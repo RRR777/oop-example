@@ -11,8 +11,21 @@ $loader = new Twig_Loader_Filesystem('View', __DIR__ . '/src/Weather');
 $twig = new Twig_Environment($loader, ['cache' => __DIR__ . '/cache', 'debug' => true]);
 
 $controller = new \Weather\Controller\StartPage();
-switch ($request->getRequestUri()) {
-    case '/week':
+
+switch ($_GET['name']) {
+    case 'week':
+        $renderInfo = $controller->getWeekWeather();
+        break;
+    case 'googleToday':
+        $renderInfo = $controller->getTodayWeather();
+        break;
+    case 'googleWeek':
+        $renderInfo = $controller->getWeekWeather();
+        break;
+    case 'todayWeatherjson':
+        $renderInfo = $controller->getTodayWeather();
+        break;
+    case 'weekWeatherjson':
         $renderInfo = $controller->getWeekWeather();
         break;
     case '/':

@@ -19,6 +19,18 @@ class GoogleApi
         return $today;
     }
 
+    public function getWeek()
+    {
+        $week = [];
+        for ( $i =1; $i <= 10; $i++) {
+            $today = $this->load(new NullWeather());
+            $today->setDate(new \DateTime('+' . $i .' days'));
+            $week[]=$today;
+        }
+        return $week;
+    }
+
+
     /**
      * @param Weather $before
      * @return Weather

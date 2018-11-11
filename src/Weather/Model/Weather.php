@@ -7,8 +7,13 @@ class Weather
     private $map = [
         1 => 'cloud',
         2 => 'cloud-rain',
-        3 => 'sun'
-    ];
+        3 => 'sun',
+        "Cloudy" => 'cloud',
+        "Scattered Showers" => 'cloud-rain',
+        "Breezy" => 'sun',
+        "Partly Cloudy" => 'cloud',
+        "Mostly Cloudy" => 'cloud'
+        ];
 
     /**
      * @var integer
@@ -21,7 +26,7 @@ class Weather
     protected $nightTemp;
 
     /**
-     * @var int
+     * @var string
      */
     protected $sky;
 
@@ -63,17 +68,17 @@ class Weather
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getSky(): int
+    public function getSky(): string
     {
         return $this->sky;
     }
 
     /**
-     * @param int $sky
+     * @param string $sky
      */
-    public function setSky(int $sky): void
+    public function setSky(string $sky): void
     {
         $this->sky = $sky;
     }
